@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# current directory
+DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Run Rails server in the background
+bundle exec rails s -p 3000 &
+
+# Wait a bit to ensure Rails server is up before starting webpack-dev-server
+sleep 5
+
+# Run webpack-server
+"$DIR"/webpacker-dev-server
+
