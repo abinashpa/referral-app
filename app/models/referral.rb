@@ -11,7 +11,7 @@ class Referral < ApplicationRecord
   after_create :send_referral_email
 
   def already_referred
-    if Referral.where(referrer_id:, referred_to:).exists?
+    if Referral.where(referrer_id: self.referrer_id, referred_to: self.referred_to).exists?
       errors.add(:base, "You have already referred this user")
     end
   end
