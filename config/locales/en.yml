@@ -30,4 +30,17 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  status: "ok"
+  signup:
+    success: "You have successfully signed up"
+    failure: "There was a problem signing up"
+  signin:
+    success: "You have successfully logged in"
+    failure: "Invalid credentials"
+  signout:
+    success: "You have successfully signed out"
+    failure: "No active session"
+  referrals:
+    create:
+      success: "Referral created"
+      failure: "There was a problem creating the referral"

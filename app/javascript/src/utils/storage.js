@@ -1,22 +1,22 @@
 const setToLocalStorage = ({
-  authToken,
+  authToken = null,
   email,
-  userId,
-  userFirstName,
-  userLastName,
+  id,
+  firstName,
+  lastName,
 }) => {
-  localStorage.setItem("authToken", JSON.stringify(authToken));
-  localStorage.setItem("authEmail", JSON.stringify(email));
-  localStorage.setItem("authUserId", JSON.stringify(userId));
-  localStorage.setItem("authUserName", JSON.stringify(userFirstName));
-  localStorage.setItem("authUserName", JSON.stringify(userLastName));
+  localStorage.setItem("authToken", authToken);
+  localStorage.setItem("authEmail", email);
+  localStorage.setItem("authUserId", id);
+  localStorage.setItem("authUserFirstName", firstName);
+  localStorage.setItem("authUserLastName", lastName);
 };
 
 const getFromLocalStorage = key => {
   let response = "";
   try {
     const value = localStorage.getItem(key);
-    response = value ? JSON.parse(value) : "";
+    response = value || "";
   } catch (error) {
     logger.error(error);
     response = "";

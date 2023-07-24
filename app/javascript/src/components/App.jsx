@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 
 import Dashboard from "./Dashboard";
 import PageLoader from "./PageLoader";
+import Refer from "./Refer";
 import SignIn from "./Signin";
 import Signup from "./Signup";
 
@@ -17,16 +18,21 @@ import { registerIntercepts, setAuthHeaders } from "../apis/axios";
 import { initializeLogger } from "../utils/logger";
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     initializeLogger();
     registerIntercepts();
     setAuthHeaders(setLoading);
-  }, [isLoggedIn]);
+  }, []);
 
-  const PrivateRoutes = () => <Route exact component={Dashboard} path="/" />;
+  const PrivateRoutes = () => (
+    <>
+      <Route exact component={Dashboard} path="/" />
+      <Route exact component={Refer} path="/refer" />
+    </>
+  );
 
   const PublicRoutes = () => (
     <>

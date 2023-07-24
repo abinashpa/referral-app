@@ -43,6 +43,8 @@ gem "react-rails"
 gem "devise"
 gem "devise-jwt"
 
+gem "mail", "~> 2.7"
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
