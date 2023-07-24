@@ -16,11 +16,17 @@ import Typography from "@mui/material/Typography";
 import { useHistory } from "react-router-dom";
 
 import usersApi from "../apis/user";
+import { setToLocalStorage, getFromLocalStorage } from "../utils/storage";
 
 const defaultTheme = createTheme();
 
 const SignIn = ({ setIsLoggedIn }) => {
   const history = useHistory();
+
+  if (getFromLocalStorage("authEmail")) {
+    setIsLoggedIn(true);
+    history.push("/");
+  }
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -33,6 +39,7 @@ const SignIn = ({ setIsLoggedIn }) => {
     };
     const res = await usersApi.signIn(payload);
     if (res.status === 200) {
+      setToLocalStorage(res.data.user);
       setIsLoggedIn(true);
       history.push("/");
     }

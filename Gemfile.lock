@@ -309,6 +309,7 @@ DEPENDENCIES
   devise-jwt
   erb_lint!
   jbuilder
+  mail (~> 2.7)
   mysql2 (~> 0.5)
   puma (~> 5.0)
   rails (= 7.0.1)
