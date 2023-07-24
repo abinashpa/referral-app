@@ -29,3 +29,17 @@ body {
   padding: 10px;
   margin: 280px;
 }
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.sign-out-button {
+  margin-left: auto;
+}
